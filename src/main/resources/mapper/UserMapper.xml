@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="cc.guoxingnan.mixinan.dao.UserDao">
+	<insert id="regist" parameterType="cc.guoxingnan.mixinan.entity.User">
+		insert into mi_user values
+			(null,#{mi_user_name},#{mi_user_password},#{mi_user_gender})
+	</insert>
+</mapper>
