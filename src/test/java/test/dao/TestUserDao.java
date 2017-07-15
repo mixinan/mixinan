@@ -1,5 +1,8 @@
 package test.dao;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.junit.Test;
 
 import cc.guoxingnan.mixinan.dao.UserDao;
@@ -11,11 +14,23 @@ public class TestUserDao extends TestCase{
 	
 	@Test
 	public void init(){
+		System.out.println(dao);
 		User user = new User();
 		user.setMi_user_name("mixi");
 		user.setMi_user_password("123456");
 		user.setMi_user_gender("1");
-		int n = dao.regist(user);
-		System.out.println(n);
+		dao.regist(user);
+		System.out.println(user);
+	}
+	
+	@Test
+	public void check(){
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("name", "demo");
+		map.put("password", "123456");
+		
+		User user = dao.check(map);
+		
+		System.out.println(user);
 	}
 }

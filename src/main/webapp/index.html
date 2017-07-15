@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>饺子联盟</title>
+<script type="text/javascript" src="js/jquery-1.11.3.js"></script>
+<script type="text/javascript" src="js/cookie_util.js"></script>
+</head>
+<body>
+	<span id="user_name">user name</span>
+	<h1>欢迎来到 饺子联盟 官网</h1>
+	
+	
+	<script>
+	$(function(){
+		var user = getCookie("user");
+		$("#user_name").html(user);
+	});
+		
+	</script>
+</body>
+</html>
