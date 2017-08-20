@@ -7,6 +7,7 @@ create table mi_user(
 	mi_user_name varchar(100) not null,
 	mi_user_password varchar(100) not null,
 	mi_user_gender varchar(5) default '1',
+	mi_user_nickname varchar(30),
 	mi_user_create_time varchar(20)
 );
 
@@ -19,9 +20,9 @@ create table mi_blog(
 	mi_blog_last_modify_time varchar(20) default null
 );
 
-insert into mi_user values(3,'123','123','1',now());
-insert into mi_user values(5,'125','125','0',now());
-insert into mi_user values(6,'126','126','1',now());
+insert into mi_user values(3,'123','123','1','ÍòÂëÇ§¾û',now());
+insert into mi_user values(5,'125','125','0','mixinan',now());
+insert into mi_user values(6,'126','126','1','¾²°æ',now());
 
 insert into mi_blog(mi_user_id,mi_blog_text,mi_blog_create_time) values
 (6,'¼õ·Ê!',now()),

@@ -7,4 +7,5 @@ import cc.guoxingnan.mixinan.entity.User;
 public interface UserDao {
 	public void regist(User user);
 	public User check(Map map);
+	public User getUserById(int id);
 }

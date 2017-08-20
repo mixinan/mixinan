@@ -7,8 +7,15 @@ public class User implements Serializable{
 	private String mi_user_name;
 	private String mi_user_password;
 	private String mi_user_gender;
+	private String mi_user_nickname;
 	private String mi_user_create_time;
 	
+	public String getMi_user_nickname() {
+		return mi_user_nickname;
+	}
+	public void setMi_user_nickname(String mi_user_nickname) {
+		this.mi_user_nickname = mi_user_nickname;
+	}
 	public String getMi_user_create_time() {
 		return mi_user_create_time;
 	}
@@ -45,9 +52,10 @@ public class User implements Serializable{
 	@Override
 	public String toString() {
 		return "User [mi_user_id=" + mi_user_id + ", mi_user_name=" + mi_user_name + ", mi_user_password="
-				+ mi_user_password + ", mi_user_gender=" + mi_user_gender + ", mi_user_create_time="
-				+ mi_user_create_time + "]";
+				+ mi_user_password + ", mi_user_gender=" + mi_user_gender + ", mi_user_nickname=" + mi_user_nickname
+				+ ", mi_user_create_time=" + mi_user_create_time + "]";
 	}
+	
 	
 	
 	

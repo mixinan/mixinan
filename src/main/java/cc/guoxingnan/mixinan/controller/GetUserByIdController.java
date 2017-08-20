@@ -13,17 +13,14 @@ import cc.guoxingnan.mixinan.util.MixiResult;
 
 @Controller
 @RequestMapping("/user")
-public class RegistController {
+public class GetUserByIdController {
 	@Resource
 	UserService service;
 	
-	@RequestMapping("/regist.do")
+	@RequestMapping("/getUserById.do")
 	@ResponseBody
-	public MixiResult<User> execute(String name,String password,String gender,String nickname){
-		if (nickname==null) {
-			nickname=name;
-		}
-		MixiResult<User> result = service.regist(name, password, gender,nickname);
+	public MixiResult<User> execute(int id){
+		MixiResult<User> result = service.getUserById(id);
 		
 		return result;
 	}

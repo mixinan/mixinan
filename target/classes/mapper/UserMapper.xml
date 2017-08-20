@@ -10,10 +10,15 @@
 			#{mi_user_name},
 			#{mi_user_password},
 			#{mi_user_gender},
+			#{mi_user_nickname},
 			#{mi_user_create_time})
 	</insert>
 	
 	<select id="check" parameterType="Map" resultType="cc.guoxingnan.mixinan.entity.User">
 		select * from mi_user where mi_user_name=#{name} and mi_user_password=#{password}
+	</select>
+	
+	<select id="getUserById" parameterType="int" resultType="cc.guoxingnan.mixinan.entity.User">
+		select * from mi_user where mi_user_id=#{userId}
 	</select>
 </mapper>

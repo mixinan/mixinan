@@ -20,6 +20,7 @@ public class TestUserDao extends TestCase{
 		user.setMi_user_name("mixi");
 		user.setMi_user_password("123456");
 		user.setMi_user_gender("1");
+		user.setMi_user_nickname("´óÄ§Íõ");
 		user.setMi_user_create_time(Util.getCurrentTime());
 		dao.regist(user);
 		System.out.println(user);
@@ -32,6 +33,16 @@ public class TestUserDao extends TestCase{
 		map.put("password", "123456");
 		
 		User user = dao.check(map);
+		
+		System.out.println(user);
+	}
+	
+	
+	@Test
+	public void getUserById(){
+		
+		
+		User user = dao.getUserById(11);
 		
 		System.out.println(user);
 	}

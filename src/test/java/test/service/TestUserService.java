@@ -18,7 +18,7 @@ public class TestUserService extends TestCase{
 	
 	@Test
 	public void test(){
-		MixiResult<User> result = service.regist("root", "123456", "1");
+		MixiResult<User> result = service.regist("root", "123456", "1","π∑≤ª¿Ì");
 		System.out.println(result.getMsg());
 		System.out.println(result.getData());
 	}
@@ -26,7 +26,14 @@ public class TestUserService extends TestCase{
 	
 	@Test
 	public void check(){
-		MixiResult<User> result = service.check("33", "33");
+		MixiResult<User> result = service.check("111", "111");
+		System.out.println(result.getData());
+	}
+	
+	
+	@Test
+	public void getUserById(){
+		MixiResult<User> result = service.getUserById(11);
 		System.out.println(result.getData());
 	}
 }

@@ -26,6 +26,8 @@
 			<input id="input_password_final" placeholder="确认密码" />
 			<span id="final_password_span"></span>
 			<br />
+			<input type="text" id="nickname" placeholder="昵称"/>
+			<br />
 			性别
 			<label><input type="radio" name="gender" value="1" checked/>男</label>  
 			<label><input type="radio" name="gender" value="0"/>女</label>  
@@ -86,12 +88,18 @@
 					//alert("可以注册");
 					//获取参数 name  password  password_final  gender
 					gender = $('input[name="gender"]:checked').val();
+					var nickname=$("#nickname").val().trim();
 					//alert(gender);
 					//发送ajax请求
 					$.ajax({
 						type:"post",
 						url:path+"/user/regist.do",
-						data:{"name":name,"password":password,"gender":gender},
+						data:{
+							"name":name,
+							"password":password,
+							"gender":gender,
+							"nickname":nickname
+							},
 						dataType:"json",
 						success:function(result){
 							alert(result.msg);

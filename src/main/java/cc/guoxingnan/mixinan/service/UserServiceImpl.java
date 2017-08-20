@@ -18,9 +18,10 @@ public class UserServiceImpl implements UserService{
 	@Resource
 	UserDao dao;
 
-	public MixiResult<User> regist(String name, String password, String gender) {
+	public MixiResult<User> regist(String name, String password, String gender, String nickname) {
 		User user = new User();
 		user.setMi_user_create_time(Util.getCurrentTime());
+		user.setMi_user_nickname(nickname);
 		user.setMi_user_gender(gender);
 		user.setMi_user_name(name);
 		user.setMi_user_password(password);
@@ -53,6 +54,23 @@ public class UserServiceImpl implements UserService{
 		}
 		
 		return result;
+	}
+
+	public MixiResult<User> getUserById(int id) {
+		User user = dao.getUserById(id);
+		
+		MixiResult<User> res = new MixiResult<User>();
+		
+		if (user==null) {
+			res.setStatus(1);
+			res.setMsg("没有查询到id对应的用户");
+		}else{
+			res.setStatus(0);
+			res.setMsg("ok");
+			res.setData(user);
+		}
+		
+		return res;
 	}
 
 }

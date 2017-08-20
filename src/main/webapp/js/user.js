@@ -1,35 +1,26 @@
 /*
- * 打开首页时，加载所有blog，并显示在ul里
+ * 根据userId找到User
  * */
-var getAllBlogs = function(){
-		
+var getUserById = function(userId){
+	var nickname="";
 	$.ajax({
-		type:"get",
-		url:path+"/blog/getallblogs.do",
+		type:"post",
+		url:path+"/user/getUserById.do",
+		data:{"id":userId},
 		dataType:"json",
+		async:false,
 		success:function(result){
-			var list = result.data;
-			var listSize = list.length;
-			console.log("从服务器获取到 "+listSize+" 条数据");
+			var user = result.data;
 			
-			//遍历结果集，显示在ul里
-			for (var i = 0;i<listSize;i++) {
-				var blog = list[i];
-				var userId = blog.mi_user_id;
-				var nickname = getUserById(userId);
-				var blogText = blog.mi_blog_text;
-				var $li = $("<li>"+nickname+"："+blog.mi_blog_create_time+"<br>"+blogText+"</li><br>");
-				
-				//给li绑定 blogId
-				$li.data("blogId",blog.mi_blog_id);
-				
-				$("#blog_list").prepend($li);
-			}
+			console.log(user.mi_user_nickname);
+			nickname = user.mi_user_nickname;
 		},
 		error:function(){
 			console.log(result.msg);
 		}
 	});
+	
+	return nickname;
 }
 
 
