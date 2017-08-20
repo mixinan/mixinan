@@ -14,21 +14,21 @@ create table mi_blog(
 	mi_blog_id int primary key auto_increment,
 	mi_user_id int,
 	mi_blog_text varchar(300),
-	mi_blog_like_times int,
+	mi_blog_like_times int default 0,
 	mi_blog_create_time varchar(20),
-	mi_blog_last_modify_time varchar(20)
+	mi_blog_last_modify_time varchar(20) default null
 );
 
 insert into mi_user values(3,'123','123',null,now());
 insert into mi_user values(5,'125','125',null,now());
 insert into mi_user values(6,'126','126',null,now());
 
-insert into mi_blog values(null,6,'¼õ·Ê!',2,now(),now());
-insert into mi_blog values(null,3,'mixinan',2,now(),now());
-insert into mi_blog values(null,5,'yes i do',2,now(),now());
-insert into mi_blog values(null,3,'hello world!',2,now(),now());
-insert into mi_blog values(null,6,'vvvv',2,now(),now());
-insert into mi_blog values(null,5,'are you ok?',3,now(),now());
-insert into mi_blog values(null,5,'I like coding!',3,now(),now());
+insert into mi_blog(mi_user_id,mi_blog_text,mi_blog_create_time) values
+(6,'¼õ·Ê!',now()),
+(5,'ok!',now()),
+(3,'yes!',now()),
+(5,'no!',now()),
+(3,'like!',now()),
+(3,'do!',now());
 
 select * from mi_blog;

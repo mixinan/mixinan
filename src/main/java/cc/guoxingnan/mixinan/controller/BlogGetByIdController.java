@@ -12,7 +12,7 @@ import cc.guoxingnan.mixinan.util.MixiResult;
 
 @Controller
 @RequestMapping("/blog")
-public class BlogController {
+public class BlogGetByIdController {
 	
 	@Resource
 	BlogService service;
