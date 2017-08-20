@@ -1,7 +1,7 @@
 package test.dao;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.junit.Test;
 
@@ -12,6 +12,7 @@ import test.TestCase;
 
 public class TestBlogDao extends TestCase {
 	BlogDao dao = super.getContext().getBean("blogDao", BlogDao.class);
+	List<Blog> allBlogs = new ArrayList<Blog>();
 	
 	@Test
 	public void init() {
@@ -31,6 +32,17 @@ public class TestBlogDao extends TestCase {
 		
 		System.out.println(blog);
 		dao.addBlog(blog);
+	}
+	
+	@Test
+	public void test3(){
+		System.out.println(dao);
+		
+		allBlogs = dao.getBlogsAll();
+		
+		for (Blog blog : allBlogs) {
+			System.out.println(blog.getMi_blog_text());
+		}
 	}
 	
 }

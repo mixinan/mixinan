@@ -1,5 +1,7 @@
 package test.service;
 
+import java.util.List;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -24,6 +26,20 @@ public class TestBlogService extends TestCase{
 		System.out.println(result.getStatus());
 		System.out.println(result.getMsg());
 		System.out.println(result.getData());
+	}
+	
+	@Test
+	public void test2(){
+		MixiResult<Blog> result = service.addBlog(3, "test");
+		System.out.println(result.getMsg());
+		System.out.println(result.getData());
+	}
+	
+	@Test
+	public void test3(){
+		MixiResult<List<Blog>> res = service.getBlogsAll();
+		System.out.println(res.getMsg());
+		System.out.println(res.getData().size());
 	}
 	
 	

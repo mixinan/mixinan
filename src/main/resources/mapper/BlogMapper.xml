@@ -15,4 +15,8 @@
 	<select id="getBlogByBlogId" parameterType="int" resultType="cc.guoxingnan.mixinan.entity.Blog">
 		select * from mi_blog where mi_blog_id=#{blogId}
 	</select>
+	
+	<select id="getBlogsAll" resultType="cc.guoxingnan.mixinan.entity.Blog">
+		select * from mi_blog
+	</select>
 </mapper>
