@@ -19,14 +19,16 @@ create table mi_blog(
 	mi_blog_last_modify_time varchar(20)
 );
 
-insert into mi_user values(3,'123','123',null,sysdate());
-insert into mi_user values(5,'125','125',null,sysdate());
-insert into mi_user values(6,'126','126',null,sysdate());
+insert into mi_user values(3,'123','123',null,now());
+insert into mi_user values(5,'125','125',null,now());
+insert into mi_user values(6,'126','126',null,now());
 
-insert into mi_blog values(null,6,'hello world!',2,now(),sysdate());
-insert into mi_blog values(null,3,'mixinan',2,now(),sysdate());
-insert into mi_blog values(null,5,'yes i do',2,now(),sysdate());
-insert into mi_blog values(null,3,'hello world!',2,now(),sysdate());
-insert into mi_blog values(null,6,'vvvv',2,now(),sysdate());
-insert into mi_blog values(null,5,'are you ok?',3,now(),sysdate());
-insert into mi_blog values(null,5,'I like coding!',3,now(),sysdate());
+insert into mi_blog values(null,6,'¼õ·Ê!',2,now(),now());
+insert into mi_blog values(null,3,'mixinan',2,now(),now());
+insert into mi_blog values(null,5,'yes i do',2,now(),now());
+insert into mi_blog values(null,3,'hello world!',2,now(),now());
+insert into mi_blog values(null,6,'vvvv',2,now(),now());
+insert into mi_blog values(null,5,'are you ok?',3,now(),now());
+insert into mi_blog values(null,5,'I like coding!',3,now(),now());
+
+select * from mi_blog;

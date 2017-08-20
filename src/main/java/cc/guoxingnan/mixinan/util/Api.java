@@ -5,5 +5,7 @@ public class Api {
 	String checkUser = "http://localhost:8088/mixinan/user/check.do?name=123&password=123";
 	//注册用户
 	String registUser = "http://localhost:8088/mixinan/user/regist.do?name=125&password=125&gender=1";
+	//根据blogId查找blog
+	String getBlogByBlogId = "http://localhost:8088/mixinan/blog/getblog.do?id=3";
 	
 }

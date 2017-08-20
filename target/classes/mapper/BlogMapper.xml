@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="cc.guoxingnan.mixinan.dao.BlogDao">
+	<insert id="addBlog" parameterType="cc.guoxingnan.mixinan.entity.Blog">
+		insert into mi_blog values
+			(null,
+			#{mi_user_id},
+			#{mi_blog_text},
+			#{mi_blog_like_times},
+			#{mi_blog_create_time},
+			null)
+	</insert>
+	
+	<select id="getBlogByBlogId" parameterType="int" resultType="cc.guoxingnan.mixinan.entity.Blog">
+		select * from mi_blog where mi_blog_id=#{blogId}
+	</select>
+</mapper>
