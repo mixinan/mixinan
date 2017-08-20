@@ -115,7 +115,7 @@
 						var userId = blog.mi_user_id;
 						var nickname = getUserById(userId);
 						
-						$li = $("<li>"+nickname+":<br>"+blog.mi_blog_text+"</li><br>");
+						$li = $("<li>"+nickname+":<br>"+blog.mi_blog_text+"<br>"+blog.mi_blog_create_time+"</li><br>");
 						
 						// 将blogId绑定在 $li（注意：jQuery对象）上
 						$li.data("blogId", blog.mi_blog_id);

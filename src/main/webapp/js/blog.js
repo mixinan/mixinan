@@ -18,7 +18,7 @@ var getAllBlogs = function(){
 				var userId = blog.mi_user_id;
 				var nickname = getUserById(userId);
 				var blogText = blog.mi_blog_text;
-				var $li = $("<li>"+nickname+"："+blog.mi_blog_create_time+"<br>"+blogText+"</li><br>");
+				var $li = $("<li>"+nickname+"：<br>"+blogText+"<br>"+blog.mi_blog_create_time+"</li><br>");
 				
 				//给li绑定 blogId
 				$li.data("blogId",blog.mi_blog_id);
