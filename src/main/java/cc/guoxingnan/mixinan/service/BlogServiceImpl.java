@@ -74,4 +74,25 @@ public class BlogServiceImpl implements BlogService{
 		return res;
 	}
 
+
+
+	public MixiResult<List<Blog>> searchBlogs(String kw) {
+		String search = "%"+kw+"%";
+		List<Blog> blogs = blogDao.searchBlogs(search);
+		
+		MixiResult<List<Blog>> res = new MixiResult<List<Blog>>();
+		
+		if (blogs==null) {
+			res.setStatus(1);
+			res.setMsg("没有相关blog，或查询失败");
+		}else{
+			res.setStatus(0);
+			res.setMsg("ok");
+			res.setData(blogs);
+		}
+		
+		
+		return res;
+	}
+
 }

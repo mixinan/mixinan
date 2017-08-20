@@ -43,4 +43,12 @@ public class TestBlogService extends TestCase{
 	}
 	
 	
+	@Test
+	public void testsearch(){
+		MixiResult<List<Blog>> res = service.searchBlogs("no");
+		System.out.println(res.getMsg());
+		System.out.println(res.getData());
+	}
+	
+	
 }

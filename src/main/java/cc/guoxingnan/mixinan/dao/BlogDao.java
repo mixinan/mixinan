@@ -11,4 +11,5 @@ public interface BlogDao {
 	public Blog getBlogByBlogId(int blogId);
 	public void deleteBlog(int id);
 	public void updateBlog(int id);
+	public List<Blog> searchBlogs(String keyword);
 }

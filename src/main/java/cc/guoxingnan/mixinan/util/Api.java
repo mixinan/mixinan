@@ -11,4 +11,6 @@ public class Api {
 	String getAllBlogs = "http://localhost:8088/mixinan/blog/getallblogs.do";
 	//Ìí¼ÓÒ»Ìõblog
 	String addBlog = "http://localhost:8088/mixinan/blog/addblog.do?userId=3&blogText=blogtext";
+	//ËÑË÷blog
+	String searchBlogs = "http://localhost:8088/mixinan/blog/blogsearch.do?kw=no";
 }

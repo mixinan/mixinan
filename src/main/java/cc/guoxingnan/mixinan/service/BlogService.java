@@ -10,5 +10,5 @@ public interface BlogService {
 	public MixiResult<List<Blog>> getBlogsAll();
 	public MixiResult<Blog> addBlog(int userId,String blogText);
 	public MixiResult<List<Blog>> getBlogsByUserId(int userId);
-	
+	public MixiResult<List<Blog>> searchBlogs(String kw);
 }

@@ -45,4 +45,17 @@ public class TestBlogDao extends TestCase {
 		}
 	}
 	
+	
+	@Test
+	public void search(){
+		System.out.println(dao);
+		
+		allBlogs = dao.searchBlogs("%no%");
+		
+		
+		for (Blog blog : allBlogs) {
+			System.out.println(blog.getMi_blog_text());
+		}
+	}
+	
 }

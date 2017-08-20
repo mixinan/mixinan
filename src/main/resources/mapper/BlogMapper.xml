@@ -19,4 +19,8 @@
 	<select id="getBlogsAll" resultType="cc.guoxingnan.mixinan.entity.Blog">
 		select * from mi_blog
 	</select>
+	
+	<select id="searchBlogs" parameterType="String" resultType="cc.guoxingnan.mixinan.entity.Blog">
+		select * from mi_blog where mi_blog_text like #{kw}
+	</select>
 </mapper>
