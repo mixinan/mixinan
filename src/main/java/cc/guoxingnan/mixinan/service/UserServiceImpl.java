@@ -43,7 +43,7 @@ public class UserServiceImpl implements UserService{
 			result.setMsg("账号或密码错误");
 		}else{
 			result.setStatus(0);
-			result.setMsg("登录成功");
+			result.setMsg("用户验证成功");
 			result.setData(user);
 		}
 		
