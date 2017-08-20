@@ -7,6 +7,7 @@ import org.junit.Test;
 
 import cc.guoxingnan.mixinan.dao.UserDao;
 import cc.guoxingnan.mixinan.entity.User;
+import cc.guoxingnan.mixinan.util.Util;
 import test.TestCase;
 
 public class TestUserDao extends TestCase{
@@ -19,6 +20,7 @@ public class TestUserDao extends TestCase{
 		user.setMi_user_name("mixi");
 		user.setMi_user_password("123456");
 		user.setMi_user_gender("1");
+		user.setMi_user_create_time(Util.getCurrentTime());
 		dao.regist(user);
 		System.out.println(user);
 	}

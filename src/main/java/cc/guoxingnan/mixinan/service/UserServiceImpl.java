@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import cc.guoxingnan.mixinan.dao.UserDao;
 import cc.guoxingnan.mixinan.entity.User;
 import cc.guoxingnan.mixinan.util.MixiResult;
+import cc.guoxingnan.mixinan.util.Util;
 
 @Service("userService")
 public class UserServiceImpl implements UserService{
@@ -18,7 +19,11 @@ public class UserServiceImpl implements UserService{
 	UserDao dao;
 
 	public MixiResult<User> regist(String name, String password, String gender) {
-		User user = new User(null, name, password, gender);
+		User user = new User();
+		user.setMi_user_create_time(Util.getCurrentTime());
+		user.setMi_user_gender(gender);
+		user.setMi_user_name(name);
+		user.setMi_user_password(password);
 		
 		dao.regist(user);
 		MixiResult<User> result = new MixiResult<User>();

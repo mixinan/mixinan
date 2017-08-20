@@ -18,7 +18,7 @@ public class TestUserService extends TestCase{
 	
 	@Test
 	public void test(){
-		MixiResult<User> result = service.regist("dd", "123456", "1");
+		MixiResult<User> result = service.regist("root", "123456", "1");
 		System.out.println(result.getMsg());
 		System.out.println(result.getData());
 	}

@@ -19,9 +19,9 @@ create table mi_blog(
 	mi_blog_last_modify_time varchar(20) default null
 );
 
-insert into mi_user values(3,'123','123',null,now());
-insert into mi_user values(5,'125','125',null,now());
-insert into mi_user values(6,'126','126',null,now());
+insert into mi_user values(3,'123','123','1',now());
+insert into mi_user values(5,'125','125','0',now());
+insert into mi_user values(6,'126','126','1',now());
 
 insert into mi_blog(mi_user_id,mi_blog_text,mi_blog_create_time) values
 (6,'¼õ·Ê!',now()),
@@ -31,4 +31,7 @@ insert into mi_blog(mi_user_id,mi_blog_text,mi_blog_create_time) values
 (3,'like!',now()),
 (3,'do!',now());
 
+select * from mi_user;
+
 select * from mi_blog;
+

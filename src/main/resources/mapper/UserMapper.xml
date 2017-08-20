@@ -5,7 +5,12 @@
 <mapper namespace="cc.guoxingnan.mixinan.dao.UserDao">
 	<insert id="regist" parameterType="cc.guoxingnan.mixinan.entity.User">
 		insert into mi_user values
-			(null,#{mi_user_name},#{mi_user_password},#{mi_user_gender})
+			(
+			null,
+			#{mi_user_name},
+			#{mi_user_password},
+			#{mi_user_gender},
+			#{mi_user_create_time})
 	</insert>
 	
 	<select id="check" parameterType="Map" resultType="cc.guoxingnan.mixinan.entity.User">

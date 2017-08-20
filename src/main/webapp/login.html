@@ -60,9 +60,9 @@
 						success:function(result){
 							
 							if (result.status==0) {
-								addCookie("user",result.data.mi_user_name);
-								alert("user:"+result.data.mi_user_name);
-								
+								addCookie("userName",result.data.mi_user_name);
+								addCookie("userId",result.data.mi_user_id);
+								//alert("user:"+result.data.mi_user_name);
 								window.location.href="index.html";
 							}else if (result.status==1) {
 								alert(result.msg);
