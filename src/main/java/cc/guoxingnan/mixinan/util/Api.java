@@ -13,6 +13,10 @@ public class Api {
 	String getBlogByBlogId = "http://localhost:8088/mixinan/blog/getblog.do?id=3";
 	//获取所有的blog
 	String getAllBlogs = "http://localhost:8088/mixinan/blog/getallblogs.do";
+	//获取blog页数
+	String getBlogPages = "http://localhost:8088/mixinan/blog/getblogpages.do";
+	//通过页数，获取当前页所有blog
+	String getAllBlogsByPage = "http://localhost:8088/mixinan/blog/getblogsbypage.do?pageno=3";
 	//添加一条blog
 	String addBlog = "http://localhost:8088/mixinan/blog/addblog.do?userId=3&blogText=blogtext";
 	//搜索blog

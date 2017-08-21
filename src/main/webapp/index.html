@@ -12,6 +12,9 @@
 	ul{
 	   list-style:none;
 	}
+	ul.pager>li{
+		display:inline-block;
+	}
 </style>
 </head>
 <body>
@@ -35,12 +38,18 @@
 		
 	</ul>
 	
-	<ol class="pager">
-		<li><a href="#">1</a></li>
-		<li><a href="#">2</a></li>
-		<li><a href="#">3</a></li>
-		<li><a href="#">4</a></li>
-	</ol>
+	
+	
+	<ul class="pager">
+		
+		<!-- 总条数/每页条数，有余数的话+1 
+			<li><a href="#">1</a></li>
+		
+			ajax得到总数，计算页数，遍历得到一系列按钮
+		-->
+		
+		
+	</ul>
 	
 	<script>
 	
@@ -82,7 +91,13 @@
 		$("#user_name").html(nickname);
 		
 		/*打开页面，加载所有blog，此方法封装在（blog.js）*/
-		getAllBlogs();
+		//getAllBlogs();
+		
+		//默认加载第一页的blogs，共5条
+		getBlogsByPage(1);
+		
+		//执行：得到所有页数，此方法封装在 blog.js
+		getAllPages();
 		
 		
 		
@@ -90,6 +105,19 @@
 		
 		//点击按钮，发送内容到数据库，addBlog()封装在blog.js
 		$("#bt_send").click(addBlog);
+		
+		
+		/*
+		 * 通过  $("ul.pager") 给 页数 添加点击事件
+		 * */
+		$("ul.pager").on("click","li a",function(e){
+			e.preventDefault();
+			var pageno = parseInt($(this).html());
+			console.log(pageno);
+			//清空容器
+			$list.html("");
+			getBlogsByPage(pageno);
+		});
 		
 		
 		

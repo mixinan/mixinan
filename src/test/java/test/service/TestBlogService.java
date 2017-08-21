@@ -51,4 +51,20 @@ public class TestBlogService extends TestCase{
 	}
 	
 	
+	@Test
+	public void getBlogByPage(){
+		MixiResult<List<Blog>> res = service.getBlogsAllByPage(1);
+		System.out.println(res.getMsg());
+		System.out.println(res.getData());
+	}
+	
+	
+	@Test
+	public void getPages(){
+		MixiResult<Integer> res = service.getBlogsAllPage();
+		System.out.println(res.getMsg());
+		System.out.println(res.getData());
+	}
+	
+	
 }

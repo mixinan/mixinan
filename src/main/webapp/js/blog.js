@@ -33,6 +33,75 @@ var getAllBlogs = function(){
 }
 
 
+/*
+ * 得到所有Blog的页数
+ * */
+var getAllPages = function(){
+	$.ajax({
+		type:"get",
+		url:path+"/blog/getblogpages.do",
+		dataType:"json",
+		success:function(res){
+			var pages = res.data;
+			//console.log("总页数："+pages);
+			$page_parent = $("ul.pager");
+			var html="";
+			for(var i=1;i<=pages;i++){
+				html += "<li><a href='#'>"+i+"</a></li>";
+			}
+			$("ul.pager").html(html);
+		},
+		error:function(){
+			console.log("得到页数失败！");
+		}
+		
+	});
+	
+}
+
+
+
+
+
+
+
+
+
+/*
+ * 根据页数查找blogs
+ * */
+var getBlogsByPage = function(page){
+	$.ajax({
+		type:"post",
+		url:path+"/blog/getblogsbypage.do",
+		data:{"pageno":page},
+		dataType:"json",
+		success:function(res){
+			var list = res.data;
+			//console.log(list);
+			for(var i=0;i<list.length;i++){
+				var blog = list[i];
+				var nickname = getUserById(blog.mi_user_id);
+				
+				$li=$("<li>"+nickname+"：<br>"+blog.mi_blog_text+"<br>"+blog.mi_blog_create_time+"</li><br>");
+				
+				//绑定数据到$li
+				$li.data("blogId",blog.mi_blog_id);
+				$li.data("userId",blog.mi_user_id);
+				
+				$("#blog_list").prepend($li);
+			}
+		},
+		error:function(){
+			
+		}
+	});
+}
+
+
+
+
+
 
 
 
@@ -67,7 +136,8 @@ var addBlog = function(){
 			$input.attr("placeholder","请输入内容");
 			//清空ul，重新从服务器获取blog列表
 			$list.html("");
-			getAllBlogs();
+			//getAllBlogs();
+			getBlogsByPage(1);
 //			$list.prepend($("<li>"+userId+"："+blogText+"</li>"));
 		},
 		error:function(){

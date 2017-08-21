@@ -95,4 +95,40 @@ public class BlogServiceImpl implements BlogService{
 		return res;
 	}
 
+
+
+	public MixiResult<List<Blog>> getBlogsAllByPage(int pageno) {
+		List<Blog> blogs = blogDao.getBlogsAllByPage(pageno);
+		
+		MixiResult<List<Blog>> res = new MixiResult<List<Blog>>();
+		if (blogs==null) {
+			res.setStatus(1);
+			res.setMsg("failer");
+		}else{
+			res.setStatus(0);
+			res.setMsg("ok");
+			res.setData(blogs);
+		}
+		return res;
+	}
+
+
+
+	public MixiResult<Integer> getBlogsAllPage() {
+		int blogs = blogDao.getBlogsAllPager();
+		int pages = blogs%5==0 ? blogs/5 : blogs/5+1;
+		
+		MixiResult<Integer> res = new MixiResult<Integer>();
+		if (blogs==0) {
+			res.setStatus(1);
+			res.setMsg("fail");
+		}else{
+			res.setStatus(0);
+			res.setMsg("ok");
+			res.setData(pages);
+		}
+		
+		return res;
+	}
+
 }

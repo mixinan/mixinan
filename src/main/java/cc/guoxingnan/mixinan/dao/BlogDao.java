@@ -6,7 +6,12 @@ import cc.guoxingnan.mixinan.entity.Blog;
 
 public interface BlogDao {
 	public List<Blog> getBlogsAll();
+	public List<Blog> getBlogsAllByPage(int pageno);
+	//查询所有页数
+	public int getBlogsAllPager();
+	//查询页数
 	public List<Blog> getBlogsByUserId(int userId);
+	public int getPages();
 	public void addBlog(Blog blog);
 	public Blog getBlogByBlogId(int blogId);
 	public void deleteBlog(int id);

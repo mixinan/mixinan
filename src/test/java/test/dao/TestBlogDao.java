@@ -58,4 +58,28 @@ public class TestBlogDao extends TestCase {
 		}
 	}
 	
+	
+	@Test
+	public void getAllBlogByPage(){
+		System.out.println(dao);
+		
+		allBlogs = dao.getBlogsAllByPage(1);
+		
+		
+		for (Blog blog : allBlogs) {
+			System.out.println(blog.getMi_blog_text());
+		}
+	}
+	
+	
+	@Test
+	public void getPages(){
+		System.out.println(dao);
+		
+		int blogsno = dao.getBlogsAllPager();
+		int btSize = blogsno%5==0 ? blogsno/5 : blogsno/5+1;
+		
+		System.out.println("条目："+blogsno+" 按钮数："+btSize);
+	}
+	
 }

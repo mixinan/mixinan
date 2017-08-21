@@ -20,6 +20,14 @@
 		select * from mi_blog
 	</select>
 	
+	<select id="getBlogsAllByPage" parameterType="int" resultType="cc.guoxingnan.mixinan.entity.Blog">
+		select * from mi_blog limit #{pageno},5
+	</select>
+	 
+	<select id="getBlogsAllPager" resultType="int">
+		select count(mi_blog_id) from mi_blog
+	</select>
+	
 	<select id="searchBlogs" parameterType="String" resultType="cc.guoxingnan.mixinan.entity.Blog">
 		select * from mi_blog where mi_blog_text like #{kw}
 	</select>
