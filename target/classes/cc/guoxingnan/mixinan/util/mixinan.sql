@@ -25,15 +25,16 @@ create table mi_blog(
 create table mi_pic(
 	mi_pic_id int primary key auto_increment,
 	mi_pic_url varchar(100),
+	mi_pic_desc varchar(140),
 	mi_pic_create_time varchar(20)
 );
 
 
 insert into mi_pic values
-(null,"https://www.baidu.com/img/baidu_jgylogo3.gif",now()),
-(null,"https://www.baidu.com/img/baidu_jgylogo3.gif",now()),
-(null,"https://www.baidu.com/img/baidu_jgylogo3.gif",now());
+(null,"https://www.baidu.com/img/baidu_jgylogo3.gif","第一张",now()),
+(null,"https://www.baidu.com/img/baidu_jgylogo3.gif","第二张",now());
 
+select * from mi_pic;
 
 
 

@@ -9,6 +9,7 @@ public class Api {
 	//通过userId找到user
 	String getUserById = "http://localhost:8088/mixinan/user/getUserById.do?id=11";
 	
+	
 	//根据blogId查找blog
 	String getBlogByBlogId = "http://localhost:8088/mixinan/blog/getblog.do?id=3";
 	//获取所有的blog
@@ -21,5 +22,13 @@ public class Api {
 	String addBlog = "http://localhost:8088/mixinan/blog/addblog.do?userId=3&blogText=blogtext";
 	//搜索blog
 	String searchBlogs = "http://localhost:8088/mixinan/blog/blogsearch.do?kw=no";
+
+	
+	//添加图片
+	String addPic = "http://176.3.13.17:8088/mixinan/pic/add.do?url=test&desc=hi";
+	//获取所有图片
+	String getPics = "http://176.3.13.17:8088/mixinan/pic/getAll.do";
+	//获取最后一张图片
+	String getLastPic = "http://176.3.13.17:8088/mixinan/pic/getLastPic.do";
 	
 }
