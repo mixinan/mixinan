@@ -21,7 +21,7 @@
 	</select>
 	
 	<select id="getBlogsAllByPage" parameterType="int" resultType="cc.guoxingnan.mixinan.entity.Blog">
-		select * from mi_blog limit #{pageno},5
+		select * from mi_blog order by mi_blog_create_time desc limit #{pageno},5
 	</select>
 	 
 	<select id="getBlogsAllPager" resultType="int">

@@ -54,7 +54,7 @@
 					//发送ajax请求
 					$.ajax({
 						type:"post",
-						url:path+"/user/check.do",
+						url:path+"/user/login.do",
 						data:{"name":name,"password":password},
 						dataType:"json",
 						success:function(result){

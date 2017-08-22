@@ -20,6 +20,23 @@ create table mi_blog(
 	mi_blog_last_modify_time varchar(20) default null
 );
 
+
+
+create table mi_pic(
+	mi_pic_id int primary key auto_increment,
+	mi_pic_url varchar(100),
+	mi_pic_create_time varchar(20)
+);
+
+
+insert into mi_pic values
+(null,"https://www.baidu.com/img/baidu_jgylogo3.gif",now()),
+(null,"https://www.baidu.com/img/baidu_jgylogo3.gif",now()),
+(null,"https://www.baidu.com/img/baidu_jgylogo3.gif",now());
+
+
+
+
 insert into mi_user values(3,'123','123','1','ÍòÂëÇ§¾û',now());
 insert into mi_user values(5,'125','125','0','mixinan',now());
 insert into mi_user values(6,'126','126','1','¾²°æ',now());

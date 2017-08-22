@@ -23,7 +23,7 @@
 		<property name="username" value="root"></property>
 		<property name="password" value="mixinan007!"></property>
 		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
-		<property name="url" value="jdbc:mysql://localhost:3306/mixinan?characterEncoding=utf8"></property>
+		<property name="url" value="jdbc:mysql://176.3.13.17:3306/mixinan?characterEncoding=utf8"></property>
 	</bean>
 	
 	<!-- 配置sqlSessionFactory -->

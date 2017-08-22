@@ -13,9 +13,19 @@ import cc.guoxingnan.mixinan.util.MixiResult;
 
 @Controller
 @RequestMapping("/user")
-public class RegistController {
+public class UserController {
+	
 	@Resource
 	UserService service;
+	
+	@RequestMapping("/getUserById.do")
+	@ResponseBody
+	public MixiResult<User> execute(int id){
+		MixiResult<User> result = service.getUserById(id);
+		return result;
+	}
+	
+	
 	
 	@RequestMapping("/regist.do")
 	@ResponseBody
@@ -24,9 +34,16 @@ public class RegistController {
 			nickname=name;
 		}
 		MixiResult<User> result = service.regist(name, password, gender,nickname);
-		
 		return result;
 	}
 	
+	
+	
+	@RequestMapping("/login.do")
+	@ResponseBody
+	public MixiResult<User> execute(String name,String password){
+		MixiResult<User> result = service.check(name, password);
+		return result;
+	}
 	
 }

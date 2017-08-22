@@ -89,7 +89,7 @@ var getBlogsByPage = function(page){
 				$li.data("blogId",blog.mi_blog_id);
 				$li.data("userId",blog.mi_user_id);
 				
-				$("#blog_list").prepend($li);
+				$("#blog_list").append($li);
 			}
 		},
 		error:function(){
@@ -128,17 +128,13 @@ var addBlog = function(){
 		data:{"userId":userId,"blogText":blogText},
 		dataType:"json",
 		success:function(result){
-			console.log(result.status);
-			console.log(result.msg);
-			//console.log(result.data);
 			//发送完毕后，清空输入框内容
 			$input.val("");
 			$input.attr("placeholder","请输入内容");
-			//清空ul，重新从服务器获取blog列表
+			//清空ul，重新从服务器获取第一页blog列表
 			$list.html("");
-			//getAllBlogs();
+			//重新加载第一页
 			getBlogsByPage(1);
-//			$list.prepend($("<li>"+userId+"："+blogText+"</li>"));
 		},
 		error:function(){
 			console.log(result.status);

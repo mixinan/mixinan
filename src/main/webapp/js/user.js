@@ -12,7 +12,7 @@ var getUserById = function(userId){
 		success:function(result){
 			var user = result.data;
 			
-			console.log(user.mi_user_nickname);
+			//console.log(user.mi_user_nickname);
 			nickname = user.mi_user_nickname;
 		},
 		error:function(){
