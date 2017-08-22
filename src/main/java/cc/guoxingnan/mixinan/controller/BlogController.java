@@ -72,4 +72,30 @@ public class BlogController {
 		return result;
 	}
 
+	
+	@RequestMapping("/delete.do")
+	@ResponseBody
+	public MixiResult<String> deleteBlog(int blogId){
+		MixiResult<String> result = service.deleteBlog(blogId);
+		return result;
+	}
+	
+	
+	@RequestMapping("/getByUserId.do")
+	@ResponseBody
+	public MixiResult<List<Blog>> getBlogsByUserId(int userId){
+		MixiResult<List<Blog>> result = service.getBlogsByUserId(userId);
+		return result;
+	}
+	
+	
+	
+	@RequestMapping("/update.do")
+	@ResponseBody
+	public MixiResult<String> updateBlog(int blogId,String blogText){
+		Blog blog = getBlogById(blogId).getData();
+		blog.setMi_blog_text(blogText);
+		MixiResult<String> result = service.updateBlog(blog);
+		return result;
+	}
 }

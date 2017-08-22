@@ -1,6 +1,5 @@
 package test.dao;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Test;
@@ -10,19 +9,31 @@ import cc.guoxingnan.mixinan.entity.Blog;
 import cc.guoxingnan.mixinan.util.Util;
 import test.TestCase;
 
-public class TestBlogDao extends TestCase {
+public class TestBlogDao extends TestCase{
 	BlogDao dao = super.getContext().getBean("blogDao", BlogDao.class);
-	List<Blog> allBlogs = new ArrayList<Blog>();
 	
 	@Test
-	public void init() {
-		System.out.println(dao);
-		Blog blog = dao.getBlogByBlogId(2);
+	public void test(){
+		Blog blog = dao.getBlogByBlogId(30);
+		
 		System.out.println(blog);
 	}
 	
+	
 	@Test
-	public void test2(){
+	public void update(){
+		Blog blog=dao.getBlogByBlogId(37);
+		blog.setMi_blog_text("修改后的");
+		blog.setMi_blog_last_modify_time(Util.getCurrentTime());
+		int rows = dao.updateBlog(blog);
+		
+		System.out.println(rows);
+	}
+	
+	
+	
+	@Test
+	public void addBlog(){
 		System.out.println(dao);
 		
 		Blog blog = new Blog();
@@ -34,11 +45,12 @@ public class TestBlogDao extends TestCase {
 		dao.addBlog(blog);
 	}
 	
+	
 	@Test
 	public void test3(){
 		System.out.println(dao);
 		
-		allBlogs = dao.getBlogsAll();
+		List<Blog> allBlogs = dao.getBlogsAll();
 		
 		for (Blog blog : allBlogs) {
 			System.out.println(blog.getMi_blog_text());
@@ -50,7 +62,7 @@ public class TestBlogDao extends TestCase {
 	public void search(){
 		System.out.println(dao);
 		
-		allBlogs = dao.searchBlogs("%no%");
+		List<Blog> allBlogs = dao.searchBlogs("%no%");
 		
 		
 		for (Blog blog : allBlogs) {
@@ -63,7 +75,7 @@ public class TestBlogDao extends TestCase {
 	public void getAllBlogByPage(){
 		System.out.println(dao);
 		
-		allBlogs = dao.getBlogsAllByPage(1);
+		List<Blog> allBlogs = dao.getBlogsAllByPage(1);
 		
 		
 		for (Blog blog : allBlogs) {
@@ -81,5 +93,4 @@ public class TestBlogDao extends TestCase {
 		
 		System.out.println("条目："+blogsno+" 按钮数："+btSize);
 	}
-	
 }

@@ -51,8 +51,17 @@ public class BlogServiceImpl implements BlogService{
 	
 	
 	public MixiResult<List<Blog>> getBlogsByUserId(int userId) {
-		// TODO Auto-generated method stub
-		return null;
+		List<Blog> blogs = blogDao.getBlogsByUserId(userId);
+		MixiResult<List<Blog>> res = new MixiResult<List<Blog>>();
+		if (blogs==null) {
+			res.setStatus(1);
+			res.setMsg("fail");
+		}else{
+			res.setStatus(0);
+			res.setMsg("ok");
+			res.setData(blogs);
+		}
+		return res;
 	}
 
 
@@ -128,6 +137,36 @@ public class BlogServiceImpl implements BlogService{
 			res.setData(pages);
 		}
 		
+		return res;
+	}
+
+
+
+	public MixiResult<String> deleteBlog(int id) {
+		int rows = blogDao.deleteBlog(id);
+		MixiResult<String> res = new MixiResult<String>();
+		if (rows==1) {
+			res.setStatus(0);
+			res.setMsg("ok");
+		}else{
+			res.setStatus(1);
+			res.setMsg("fail");
+		}
+		return res;
+	}
+
+
+
+	public MixiResult<String> updateBlog(Blog blog) {
+		int rows = blogDao.updateBlog(blog);
+		MixiResult<String> res = new MixiResult<String>();
+		if (rows==1) {
+			res.setStatus(0);
+			res.setMsg("ok");
+		}else{
+			res.setStatus(1);
+			res.setMsg("fail");
+		}
 		return res;
 	}
 

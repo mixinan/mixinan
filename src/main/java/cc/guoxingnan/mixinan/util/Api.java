@@ -22,13 +22,19 @@ public class Api {
 	String addBlog = "http://localhost:8088/mixinan/blog/addblog.do?userId=3&blogText=blogtext";
 	//搜索blog
 	String searchBlogs = "http://localhost:8088/mixinan/blog/blogsearch.do?kw=no";
+	//通过blogId删除blog
+	String deleteBlog = "http://localhost:8088/mixinan/blog/delete.do?blogId=30";
+	//根据userId查找该用户所有blog
+	String getBlogsByUserId = "http://localhost:8088/mixinan/blog/getByUserId.do?userId=3";
+	//根据blogId 修改blog
+	String updateBlog = "http://localhost:8088/mixinan/blog/update.do?blogId=35&blogText=sleep";
 
 	
 	//添加图片
-	String addPic = "http://176.3.13.17:8088/mixinan/pic/add.do?url=test&desc=hi";
+	String addPic = "http://localhost:8088/mixinan/pic/add.do?url=test&desc=hi";
 	//获取所有图片
-	String getPics = "http://176.3.13.17:8088/mixinan/pic/getAll.do";
+	String getPics = "http://localhost:8088/mixinan/pic/getAll.do";
 	//获取最后一张图片
-	String getLastPic = "http://176.3.13.17:8088/mixinan/pic/getLastPic.do";
+	String getLastPic = "http://localhost:8088/mixinan/pic/getLastPic.do";
 	
 }

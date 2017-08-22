@@ -3,19 +3,23 @@
  "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
 
 <mapper namespace="cc.guoxingnan.mixinan.dao.BlogDao">
+	
+
+
 	<insert id="addBlog" parameterType="cc.guoxingnan.mixinan.entity.Blog">
 		insert into mi_blog(mi_user_id,mi_blog_text,mi_blog_create_time) values
-			(
-			#{mi_user_id},
+			(#{mi_user_id},
 			#{mi_blog_text},
-			#{mi_blog_create_time}
-			)
+			#{mi_blog_create_time})
 	</insert>
-	
+
+	 
+	 
 	<select id="getBlogByBlogId" parameterType="int" resultType="cc.guoxingnan.mixinan.entity.Blog">
 		select * from mi_blog where mi_blog_id=#{blogId}
 	</select>
 	
+
 	<select id="getBlogsAll" resultType="cc.guoxingnan.mixinan.entity.Blog">
 		select * from mi_blog
 	</select>
@@ -31,4 +35,21 @@
 	<select id="searchBlogs" parameterType="String" resultType="cc.guoxingnan.mixinan.entity.Blog">
 		select * from mi_blog where mi_blog_text like #{kw}
 	</select>
+
+	<select id="getBlogsByUserId" parameterType="int" resultType="cc.guoxingnan.mixinan.entity.Blog">
+		select * from mi_blog where mi_user_id=#{userId}
+	</select>
+	
+	<delete id="deleteBlog" parameterType="int">
+		delete from mi_blog where mi_blog_id=#{blogId}
+	</delete>
+	
+	<update id="updateBlog" parameterType="cc.guoxingnan.mixinan.entity.Blog">
+		update mi_blog set 
+			mi_blog_text=#{mi_blog_text},
+			mi_blog_last_modify_time=now()
+		where mi_blog_id=#{mi_blog_id}
+	</update>
+	
+
 </mapper>

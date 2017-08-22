@@ -10,6 +10,7 @@ import cc.guoxingnan.mixinan.entity.User;
 import cc.guoxingnan.mixinan.service.BlogService;
 import cc.guoxingnan.mixinan.service.UserService;
 import cc.guoxingnan.mixinan.util.MixiResult;
+import cc.guoxingnan.mixinan.util.Util;
 import test.TestCase;
 
 public class TestBlogService extends TestCase{
@@ -21,8 +22,8 @@ public class TestBlogService extends TestCase{
 	}
 	
 	@Test
-	public void test(){
-		MixiResult<Blog> result = service.getBlogByBlogId(3);
+	public void getBlogById(){
+		MixiResult<Blog> result = service.getBlogByBlogId(29);
 		System.out.println(result.getStatus());
 		System.out.println(result.getMsg());
 		System.out.println(result.getData());
@@ -64,6 +65,31 @@ public class TestBlogService extends TestCase{
 		MixiResult<Integer> res = service.getBlogsAllPage();
 		System.out.println(res.getMsg());
 		System.out.println(res.getData());
+	}
+	
+	
+	@Test
+	public void deleteBlog(){
+		MixiResult<String> res = service.deleteBlog(29);
+		System.out.println(res);
+	}
+	
+	
+	
+	@Test
+	public void getBlogsByUserId(){
+		MixiResult<List<Blog>> res = service.getBlogsByUserId(5);
+		System.out.println(res);
+	}
+	
+	
+	
+	@Test
+	public void updateBlog(){
+		Blog blog = service.getBlogByBlogId(35).getData();
+		blog.setMi_blog_text("最最込込");
+		MixiResult<String> res = service.updateBlog(blog);
+		System.out.println(res);
 	}
 	
 	

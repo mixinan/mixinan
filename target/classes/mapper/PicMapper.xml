@@ -5,11 +5,9 @@
 <mapper namespace="cc.guoxingnan.mixinan.dao.PicDao">
 	<insert id="addPic" parameterType="cc.guoxingnan.mixinan.entity.Pic">
 		insert into mi_pic(mi_pic_url,mi_pic_desc,mi_pic_create_time) values
-			(
-			#{mi_pic_url},
+			(#{mi_pic_url},
 			#{mi_pic_desc},
-			now()
-			)
+			now())
 	</insert>
 	
 	<select id="getPics" resultType="cc.guoxingnan.mixinan.entity.Pic">
